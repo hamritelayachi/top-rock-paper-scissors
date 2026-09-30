@@ -21,7 +21,7 @@ function getHumanChoice() {
         input == 'paper' ||
         input == 'scissors'
      ) {
-         input;
+         return input;
      } else {
         alert('Invalid choice. Please enter Rock, Paper, or Scissors.');
         getHumanChoice();
