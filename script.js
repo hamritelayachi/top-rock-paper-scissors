@@ -4,7 +4,6 @@ let computerScore = 0;
 let roundsCount = 0;
 const MAX_ROUNDS = 3;
 
-
 // Randomly selects and returns the computer's choice.
 function getComputerChoice() {
     const options = ['rock', 'scissors', 'paper'];
@@ -20,7 +19,7 @@ function getHumanChoice() {
     if (input == 'rock' ||
         input == 'paper' ||
         input == 'scissors'
-     ) {
+     ) {&
          return input;
      } else {
         alert('Invalid choice. Please enter Rock, Paper, or Scissors.');
@@ -28,3 +27,23 @@ function getHumanChoice() {
      }
 }
 
+function playRound() {
+    
+    const computerChoice = getComputerChoice();
+    const humanChoice = getHumanChoice();
+
+}
+
+function determineRoundWinner(humanSelection, computerSelection) {
+    if (humanSelection === computerSelection) {
+        return 'tie';
+    } else if (
+        (humanSelection === 'rock' && computerSelection === 'scissors') ||
+        (humanSelection === 'paper' && computerSelection === 'rock') ||
+        (humanSelection === 'scissors' && computerSelection === 'paper')
+    ) {
+        return 'human';
+    } else {
+        return 'computer';
+    }
+}
