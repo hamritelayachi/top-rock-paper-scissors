@@ -25,9 +25,9 @@ Choose your move:
 Rock | Paper | Scissors
 `).toLowerCase();
     // validates the input.
-    if (input == 'rock' ||
-        input == 'paper' ||
-        input == 'scissors'
+    if (input === 'rock' ||
+        input === 'paper' ||
+        input === 'scissors'
      ) {
          return input;
      } else {
@@ -40,6 +40,7 @@ function playRound() {
     const computerChoice = getComputerChoice();
     const humanChoice = getHumanChoice();
     const winner = determineRoundWinner(humanChoice, computerChoice);
+    updateScore(winner);
     alert(showRoundResult(winner));
 }
 
@@ -71,26 +72,13 @@ function updateScore(winner) {
 // Display a message based on the round winner
 function showRoundResult(winner) {
     if (winner === 'human') {
-        updateScore(winner);
         return '🎉 Victory! You won the round!';
     } else if (winner === 'computer') {
-        updateScore(winner);
         return '🤖 The computer wins this round!'
     } else {
         return '🤝 It’s a tie! Great minds think alike!';
     }
 }
-
-function showGameResult(game_winner) {
-    if (game_winner === 'human') {
-        return '🎉 Victory!';
-    } else if (game_winner === 'computer') {
-        return '🤖 Defeat'
-    } else {
-        return '🤝 It’s a tie! What a game!';
-    }
-}
-
 
 function determineGameWinner(human_score, computer_score) {
     if (human_score > computer_score) {
@@ -102,14 +90,14 @@ function determineGameWinner(human_score, computer_score) {
     }
 }
 
-function setGameOver() {
+function resetGame() {
     roundsCount = 0;
     computerScore = 0;
     humanScore = 0;
 }
 
-function playGame(maxRounds) {
-    while (roundsCount < maxRounds) {
+function playGame(max_rounds) {
+    while (roundsCount < max_rounds) {
         playRound();
         roundsCount++;
     }
@@ -117,7 +105,7 @@ function playGame(maxRounds) {
     const gameWinner = determineGameWinner(humanScore, computerScore);
     const result = showFinalResult(gameWinner);
 
-    setGameOver();
+    resetGame();
 
     alert(result);
 
@@ -142,4 +130,4 @@ You: ${humanScore} | Computer: ${computerScore}`;
     }
 }
 
-alert(playGame(MAX_ROUNDS));
+playGame(MAX_ROUNDS);
