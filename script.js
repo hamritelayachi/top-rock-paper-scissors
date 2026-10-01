@@ -31,9 +31,12 @@ function playRound() {
     
     const computerChoice = getComputerChoice();
     const humanChoice = getHumanChoice();
+    const roundWinner = determineRoundWinner(humanChoice, computerChoice);
+
 
 }
 
+//  round winner determination logic
 function determineRoundWinner(humanSelection, computerSelection) {
     if (humanSelection === computerSelection) {
         return 'tie';
@@ -45,5 +48,14 @@ function determineRoundWinner(humanSelection, computerSelection) {
         return 'human';
     } else {
         return 'computer';
+    }
+}
+
+// Update the score based on the round winner
+function updateScore(winner) {
+    if(winner === 'human') {
+        humanScore++;
+    } else if (winner === 'computer') {
+        computerScore++;
     }
 }
