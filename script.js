@@ -59,3 +59,14 @@ function updateScore(winner) {
         computerScore++;
     }
 }
+
+// Display a message based on the round winner
+function showRoundResult(winner) {
+    if (winner === 'human') {
+        return '🎉 Victory! You won the round!';
+    } else if (winner === 'computer') {
+        return '🤖 The computer wins this round!'
+    } else {
+        return '🤝 It’s a tie! Great minds think alike!';
+    }
+}
